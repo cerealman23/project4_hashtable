@@ -43,26 +43,37 @@ class SLL {
       //implement this method
 
       Node<U>* index = headPtr;
-            
+      
+      if (!headPtr) {
+	
+	headPtr = new Node<U>;
+	headPtr->SSN = item1;
+	headPtr->name = item2;
+	headPtr->next = nullptr;
+	size++;
+	return;
+	
+      }
+      
       while (index) {
 	
+	if (!index->next) {
+	  
+	  index->next = new Node<U>;
+	  index->next->SSN = item1;
+	  index->next->name = item2;
+	  size++;
+	  index->next->next = nullptr;
+	  return;
+
+	}
 	index = index->next;
 
       }
 
       // sets item 1 to the key and item2 to the name
-      if (!headPtr) {
-	
-	headPtr = new Node<U>;
-	
-      }
+      
 
-      if (!index) {
-	headPtr->SSN = item1;
-	headPtr->name = item2;
-	headPtr->next = nullptr;
-	size++;
-      }
 
     }
     
@@ -91,27 +102,42 @@ class SLL {
     bool remove(U item1){
       //implement this method
 
-      Node<U>* index = headPtr;
-
-      if (!index) {
-	
-	headPtr = index->next;
-	--size;
-	delete index;
-
-      }
+      Node<U>* index = headPtr,* previousNode = nullptr;
+      
 
       while (index) {
 	
-	if (index->next->SSN == item1) {
-	  	  
-	  Node<U>* temp = index->next;
-	  index->next = index->next->next;
-	  delete temp;
-	  --size;
+	if (index->SSN == item1) {
+
+	  // point to the same thing 
+	  if (index == headPtr) {
+	    
+	    headPtr = index->next;
+	    delete index;
+	    
+	    size--;
+	    return true;
+	    
+	  }
+
+	  if (!index->next) {
+	    
+	    previousNode->next = nullptr;
+	    delete index;
+	    size--;
+	    return true;
+
+	  }
+	  
+	  previousNode->next = index->next;
+	  delete index;
+	  size--;
 	  return true;
 
 	}
+
+	previousNode = index;
+	index = index->next;	
 
       }
 
