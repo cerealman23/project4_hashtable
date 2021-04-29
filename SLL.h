@@ -92,6 +92,8 @@ class SLL {
 
 	}
 
+	index = index->next;
+
       }
 
       return nullptr;

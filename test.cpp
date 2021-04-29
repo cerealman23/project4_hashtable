@@ -14,14 +14,21 @@ int main(){
   tempSLL->insert("wowano", "huhh");
   tempSLL->insert("matt", "huhhh");
 
-  tempSLL->remove("matt");
+  
   
   tempSLL->insert("massah", "huhhhh");
 
+  
+
+  cout << tempSLL->search("massah")->SSN << " succesful search" << "\n";
+
+  
   cout << tempSLL->getSize() << "\n";
 
 
   tempSLL->display();
+
+
   
   //HashTable<string>* tempT = new HashTable<string>(10007);
 }
