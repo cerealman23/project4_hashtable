@@ -42,6 +42,7 @@ class SLL {
     void insert(U item1, U item2){
       //implement this method
 
+      // item1 is key and 2 is val 
       Node<U>* index = headPtr;
       
       if (!headPtr) {

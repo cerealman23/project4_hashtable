@@ -17,12 +17,26 @@ class HashTable {
     
     // constructor, which use size as the table size
     HashTable(int size){
+
+      table = new SLL<V>[size];
+      tableSize = size;
+
       // implement this method
     }
     
     // search item in the table
     // if found, return true; otherwise, return false
     bool find(V item){
+
+      for (int i = 0; i < tableSize; ++i) {
+	
+	if (table[i].headPtr->SSN == item) {
+	  return true;
+	}
+
+      }
+
+      
       // implement this method
     }
     
