@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "SLL.h"
+#include "hashTable.h"
 
 using namespace std;
 
@@ -30,5 +31,6 @@ int main(){
 
 
   
-  //HashTable<string>* tempT = new HashTable<string>(10007);
+  HashTable<string>* tempT = new HashTable<string>(15);
+  
 }

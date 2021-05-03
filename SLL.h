@@ -57,6 +57,10 @@ class SLL {
       }
       
       while (index) {
+
+	if (index->SSN == item1)
+	  return false;
+	
 	
 	if (!index->next) {
 	  
