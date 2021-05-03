@@ -22,7 +22,7 @@ class SLL {
     ~SLL(){
       // implement this method
 
-      Node<U> index = headPtr;
+      Node<U>* index = headPtr;
 
       while (index->next) {
 	
@@ -34,12 +34,12 @@ class SLL {
       
     }
     
-    Node<U>* getHeadPtr(){
+    Node<U>*& getHeadPtr(){
         return headPtr;
     }
     
     // insert (item1, item2) to the list
-    void insert(U item1, U item2){
+    bool insert(U item1, U item2){
       //implement this method
 
       // item1 is key and 2 is val 
@@ -52,7 +52,7 @@ class SLL {
 	headPtr->name = item2;
 	headPtr->next = nullptr;
 	size++;
-	return;
+	return true;
 	
       }
       
@@ -65,12 +65,14 @@ class SLL {
 	  index->next->name = item2;
 	  size++;
 	  index->next->next = nullptr;
-	  return;
+	  return true;
 
 	}
 	index = index->next;
 
       }
+
+      return false;
 
       // sets item 1 to the key and item2 to the name
       
@@ -158,9 +160,11 @@ class SLL {
         Node<U>* temp;
         temp = headPtr;
         while (temp!= nullptr) {
-            cout << temp->SSN << endl;
+            cout << temp->SSN << "->";
             temp = temp->next;
         }
+	std::cout <<  "\n";
+
     }
 };
 
